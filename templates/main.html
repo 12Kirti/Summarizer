@@ -21,6 +21,9 @@ textarea:hover{box-shadow:0px 0px 13px 0px deepskyblue}
         padding: 1px;
         margin-top: 8px;
     }
+    .shifting{
+        margin-left: 83px;
+    }
     html,body{
         background-image: url('static/images/back4.jpg');
         background-size: cover;
@@ -35,11 +38,11 @@ textarea:hover{box-shadow:0px 0px 13px 0px deepskyblue}
 <div class="container-fluid">
 
     <div class="row mt-5">
-        <div class="offset-2 col-sm-7">
+        <div class="offset-2 col-sm-6">
             <form method="POST" enctype="multipart/form-data" action="text_result"> 
                 <form>
     
-                    <textarea id="field" placeholder="Type Here" maxlength="3000" rows="10" cols="40"></textarea>
+                    <textarea id="field" placeholder="Type Here"  rows="10" cols="40"></textarea>
                    
                    <div class="message"></div>
                  </form>
@@ -58,7 +61,7 @@ textarea:hover{box-shadow:0px 0px 13px 0px deepskyblue}
                 </div>
             </form>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 shifting">
             <div class="card-header bg-transparent text-center">
                 <h5>Options</h5>
             </div>
@@ -73,8 +76,10 @@ textarea:hover{box-shadow:0px 0px 13px 0px deepskyblue}
                     </form>
                 </div>
             </div>
-        </div>
-        
+        <!-- </div>
+        <div class="col-sm-1">
+            hello
+        </div>         -->
     </div>  
 </div>
 {% endblock %}

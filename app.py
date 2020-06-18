@@ -208,11 +208,6 @@ def site():
 def some_error():
     return render_template('some_error.html')
 
-@app.route('/demo')
-def demo():
-    return render_template('demo.html')
-
-
     
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,4 +1,9 @@
+{% extends 'layout.html' %}
+{% block css %}
 
+{% endblock %}
+
+{% block body %}
 <div class="row mt-5 d-flex justify-content-center">
     <div class="offset-0 col-sm-4">
         <div class="card-header bg-transparent text-center">
@@ -10,3 +15,28 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(function (){
+        BootstrapDialog.show({
+            message: 'Enter Your E-mail: <input type="text" class="form-control">',
+            onhide: function(dialogRef){
+                var mail = dialogRef.getModalBody().find('input').val();
+                if($.trim(mail.toLowerCase()) !== ' ') {
+                    alert('Need an E-mail!');
+                    return false;
+                }
+            },
+            buttons: [{
+                label: 'Close',
+                action: function(dialogRef) {
+                    dialogRef.close();
+                }
+            }]
+        });
+    })
+</script>
+{% endblock %}
+
