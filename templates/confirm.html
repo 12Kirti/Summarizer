@@ -10,6 +10,7 @@
             <div class="card" style="background-color: rgb(247, 248, 247);">
                 <div class="card-body">
                     <h5>Your Registration is confirm. Please check your mail to verify.</h5>
+                    <input id="submit" type="button" value="OK"/>
                 </div>
             </div>
         </div>
@@ -18,25 +19,7 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    $(function (){
-        BootstrapDialog.show({
-            message: 'Enter Your E-mail: <input type="text" class="form-control">',
-            onhide: function(dialogRef){
-                var mail = dialogRef.getModalBody().find('input').val();
-                if($.trim(mail.toLowerCase()) !== ' ') {
-                    alert('Need an E-mail!');
-                    return false;
-                }
-            },
-            buttons: [{
-                label: 'Close',
-                action: function(dialogRef) {
-                    dialogRef.close();
-                }
-            }]
-        });
-    })
-</script>
+
+
 {% endblock %}
 
