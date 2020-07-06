@@ -235,6 +235,10 @@ def admin():
 def admin_dash():
     return render_template('admindash.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/main_replica', methods=['GET','POST'])
 def main_replica():
     if request.method == 'POST':
