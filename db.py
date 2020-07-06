@@ -12,9 +12,8 @@ myserver = pymongo.MongoClient("mongodb://localhost:27017")
 socket.getaddrinfo('localhost',8080)
 mydb = myserver["Summarizer_Database"]
 
-Users_Detail=mydb["User_Datail"] #personal details of user 
-Users_Content=mydb["User_Content"] #content detail of users
-
+Users_Detail = mydb["User_Datail"] #personal details of user 
+Users_Content = mydb["User_Content"] #content detail of users
 
 # def d():
 #     em = {}
@@ -29,6 +28,10 @@ def display():
     for i in q:
         print(i)
 
+# def display_content():
+#     q =  Users_Content.find()
+#     for i in q:
+#         print(i)
 
 # print(mydb.list_collection_names())
 # print(myserver.list_database_names())
@@ -90,11 +93,23 @@ def password_checker(mail, enter_pass):
         else:
             return 0
 
+def passowrd_set_or_not(user_dict):
+    u = user_dict.pop('_id',None)
+    search_key = 'image_name'
+    count = 0
+    if u != None:
+        for key, value in u.items():
+            if key == search_key:
+                count = 1
+                break
+            else:
+                count = 0
+    return count
 
 def mail_for_password(mail):
     email = 'summarywebapplication@gmail.com'
     password = 'summary@123'
-    send_to_email = "shrmsh.1999@gmail.com"
+    send_to_email = mail
     sub = 'Verficication Mail'
     link = "http://127.0.0.1:5000/main"
     msg = '<p> Please click on the link to summarize your data. </p>' + link
@@ -118,12 +133,11 @@ def mail_for_password(mail):
     return True
 
 
+
 def delete():
     query = {"email":'shrmsh.1999@gmail.com'}
     a = Users_Detail.find_one_and_delete(query)
 
 
 # password_checker('shrmsh.1999@gmail.com',[238 ,255])
-
-
-
+# display()

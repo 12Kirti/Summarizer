@@ -1,16 +1,23 @@
 {% extends 'layout.html' %}
+
 {% block cs %}
 
-
 {% endblock %}
+
 {% block body %}
-<div class="form-group">
-    <label for="results">Results</label>
-    {% if results %}
-    <textarea class="form-control" name="results" id="results" rows="8" cols="8">{{results['summary']}}</textarea>
-    {% else %}
-    <div id="result" onload="fun()"></div>
-    {% endif %}
+<div class="m-5 pb-5 form-group">
+        <label for="results"><h1>Summary</h1></label>
+        {% if results %}
+        <textarea class="form-control" name="results" id="results" rows="8" cols="8">{{results['summary']}}</textarea>
+        {% else %}
+        <div id="result" onload="fun()"></div>
+        {% endif %}
+</div>
+<div>
+    <center>
+        <a href="/main" class="section-btn btn btn-primary smoothScroll">Generate New Summary</a>
+        <a href="/userdash" class="section-btn btn btn-primary smoothScroll">Dashboard</a>
+    </center>
 </div>
 {% endblock %}
 {% block js %}
